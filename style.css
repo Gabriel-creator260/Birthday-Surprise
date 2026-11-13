@@ -1,0 +1,197 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #ffe0ec, #ffc2d8, #fff0f5);
+    min-height: 100vh;
+    text-align: center;
+    overflow-x: hidden;
+    color: #a83265;
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+h1 {
+    font-size: 42px;
+    margin: 20px;
+    animation: glow 2s infinite alternate;
+}
+
+p {
+    line-height: 1.7;
+}
+
+.door {
+    font-size: 110px;
+    animation: bounce 2s infinite;
+}
+
+button {
+    background: #ff5c99;
+    color: white;
+    border: none;
+    padding: 15px 28px;
+    margin: 25px;
+    border-radius: 30px;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px #e88aaa;
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background: #e83e80;
+}
+
+.bear {
+    font-size: 130px;
+    animation: bearWalk 2s ease-in-out infinite alternate;
+}
+
+.paper {
+    background: #fffdf5;
+    padding: 30px;
+    width: min(90%, 350px);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px #d88ca9;
+    margin: 20px;
+    transform: rotate(-3deg);
+    animation: paperOpen 1.5s ease forwards;
+}
+
+.paper h2 {
+    margin-bottom: 15px;
+    color: #e83e80;
+}
+
+.cake {
+    font-size: 100px;
+    animation: bounce 2s infinite;
+    margin: 20px;
+}
+
+.subtitle {
+    font-size: 18px;
+}
+
+.notes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    width: min(750px, 100%);
+    margin: 30px auto;
+}
+
+.note {
+    background: #fffafc;
+    padding: 25px 18px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px #e6a5bc;
+    animation: fadeIn 1s ease both;
+    transition: .3s;
+}
+
+.note:hover {
+    transform: translateY(-8px) rotate(2deg);
+}
+
+.note h3 {
+    margin: 12px 0;
+    color: #df4784;
+}
+
+.note p {
+    color: #795064;
+    font-size: 15px;
+}
+
+.ending {
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.heart {
+    position: absolute;
+    bottom: -30px;
+    animation: floatUp 6s linear forwards;
+    opacity: .8;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px white; }
+    to { text-shadow: 0 0 20px #ff4f91; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes bearWalk {
+    from { transform: translateX(-30px) rotate(-5deg); }
+    to { transform: translateX(30px) rotate(5deg); }
+}
+
+@keyframes paperOpen {
+    from {
+        opacity: 0;
+        transform: scale(0) rotate(-20deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(-3deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 32px;
+    }
+
+    .notes {
+        grid-template-columns: 1fr;
+    }
+}
